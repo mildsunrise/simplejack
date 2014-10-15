@@ -1,0 +1,26 @@
+{ "name": "simplejack"
+, "description": "Native module for simple JACK audio clients."
+, "keywords": ["jack", "realtime", "audio", "jackd", "jackaudio"]
+, "version": "0.0.0"
+, "homepage": "https://github.com/jmendeth/simplejack"
+
+, "author": "Xavier Mendez <me@jmendeth.com>"
+, "maintainers": [ "Xavier Mendez <me@jmendeth.com>"
+                 ]
+, "contributors": [ "Xavier Mendez <me@jmendeth.com>"
+                  ]
+
+, "engines": { "node": ">= 0.10" }
+, "directories": { "src": "src"
+                 , "doc": "doc"
+                 }
+
+, "repository": { "type": "git"
+                , "url": "https://github.com/jmendeth/simplejack.git"
+                }
+, "bugs": { "url": "https://github.com/jmendeth/simplejack/issues" }
+
+, "licenses": [ { "type": "MIT",
+                  "url": "http://opensource.org/licenses/mit-license.php" }
+              ]
+}

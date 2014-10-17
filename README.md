@@ -1,5 +1,7 @@
 # simplejack
 
+[JACK][] is a platform that enables sound applications to easily send and receive realtime sound from other applications or hardware.
+
 This module enables you to register simple [JACK][] clients:
 
 ~~~ js
@@ -18,7 +20,7 @@ client.activate();
 
 This will create a JACK client named `my-client`, with 1 audio port that
 outputs a 440Hz tone. The `t` passed to the callback is the time in seconds since
-the client was last activated.
+the client was last activated, or the callback was last changed.
 
 
 ## Install
@@ -52,13 +54,6 @@ The available options (and their default values) are:
   // will fail. Otherwise a unique name will be created.
   forceName: false,
 
-  // Explicitely connect to the server with that name.
-  // Otherwise JACK will try to guess or use "default".
-  server: null,
-
-  // If the server isn't started, fail instead of starting it.
-  noStartServer: null,
-
   // Outgoing audio ports. If this is an array of strings,
   // the strigs are the names of the created ports.
   // If an integer N is passed, then N ports will be
@@ -72,7 +67,14 @@ The available options (and their default values) are:
 
   // Mark the ports as "physical", meaning these ports correspond
   // to some kind of physical I/O connector.
-  physical: false
+  physical: false,
+
+  // Explicitely connect to the server with that name.
+  // Otherwise JACK will try to guess or use "default".
+  server: null,
+
+  // If the server isn't started, fail instead of starting it.
+  noStartServer: null
 }
 ~~~
 

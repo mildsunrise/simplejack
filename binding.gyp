@@ -4,7 +4,8 @@
     'sources': [ 'src/binding.cc' ],
 
     # Flags and defines
-    'cflags': ['-Wall','-Wextra','-Wno-unused-parameter','-O3'],
+    'cflags': [ '-Wall','-Wextra','-Wno-unused-parameter','-O3' ],
+    'libraries': [ '-ljack' ],
 
     # Enable exceptions
     'cflags!': [ '-fno-exceptions' ],

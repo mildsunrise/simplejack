@@ -10,6 +10,7 @@
 , "contributors": [ "Xavier Mendez <me@jmendeth.com>"
                   ]
 
+, "main": "build/Release/simplejack"
 , "engines": { "node": ">= 0.10" }
 , "directories": { "src": "src"
                  , "doc": "doc"

@@ -1,7 +1,7 @@
 { "name": "simplejack"
 , "description": "Native module for simple JACK audio clients."
 , "keywords": ["jack", "realtime", "audio", "jackd", "jackaudio"]
-, "version": "0.0.1"
+, "version": "0.0.2"
 , "homepage": "https://github.com/jmendeth/simplejack"
 
 , "author": "Xavier Mendez <me@jmendeth.com>"

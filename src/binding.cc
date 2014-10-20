@@ -64,6 +64,12 @@ public:
       std::string* portNames, int ports_, bool terminal, bool physical,
       const char *server, bool noStartServer
   ) : ports(ports_), holdState(false), ticks(0), misses(0) {
+    // Setup UV structures
+    uv_async_init(uv_default_loop(), &async_deactivate, &deactivate_callback);
+    async_deactivate.data = this;
+    work_req.data = this;
+    assert(uv_mutex_init(&period_mutex) == 0);
+
     // Allocate arrays
     jack_ports = new jack_port_t* [ports];
     buffers = new jack_default_audio_sample_t* [ports];
@@ -98,12 +104,6 @@ public:
     JackError::check(jack_set_process_callback(jack_client, process_callback, this), "setting process callback");
     JackError::check(jack_set_sample_rate_callback(jack_client, sample_rate_changed, this), "setting sample rate callback");
     JackError::check(jack_set_buffer_size_callback(jack_client, buffer_size_changed, this), "setting buffer size callback");
-
-    // Setup UV structures
-    uv_async_init(uv_default_loop(), &async_deactivate, &deactivate_callback);
-    async_deactivate.data = this;
-    work_req.data = this;
-    assert(uv_mutex_init(&period_mutex) == 0);
   }
 
   ~Simplejack() {
